@@ -1,0 +1,51 @@
+{
+  "name": "franciscoplnv/fran-mautic-plugin",
+  "description": "FranBundle example mautic plugin",
+  "type": "mautic-plugin",
+  "keywords": [
+    "mautic",
+    "plugin",
+    "integration"
+  ],
+  "authors": [
+    {
+      "name": "Francisco Piedras",
+      "email": "franisco@lonunavisto.com"
+    }
+  ],
+  "extra": {
+    "install-directory-name": "FranBundle"
+  },
+  "require-dev": {
+    "phpstan/phpstan": "1.10.x-dev",
+    "symplify/easy-coding-standard": "^11.2"
+  },
+  "scripts": {
+    "test": [
+      "@phpunit",
+      "@fixcs",
+      "@phpstan"
+    ],
+    "quicktest": [
+      "@unit"
+    ],
+    "phpunit": "../../bin/phpunit -d memory_limit=2048M --bootstrap ../../vendor/autoload.php --configuration phpunit.xml --fail-on-warning --testsuite=all",
+    "unit": "../../bin/phpunit -d memory_limit=2048M --bootstrap ../../vendor/autoload.php --configuration phpunit.xml --fail-on-warning --testsuite=unit",
+    "coverage": "../../bin/phpunit -d memory_limit=2048M --bootstrap ../../vendor/autoload.php --configuration phpunit.xml --fail-on-warning --testsuite=all --coverage-text --coverage-html=Tests/Coverage",
+    "phpstan": "vendor/bin/phpstan analyse --autoload-file=../../vendor/autoload.php --level=max Config Connection Entity Form Integration Migrations Sync Tests",
+    "csfixer": "vendor/bin/ecs check .",
+    "fixcs": "vendor/bin/ecs check . --fix"
+  },
+  "minimum-stability": "dev",
+  "require": {
+    "mautic/core-lib": "^4.4",
+    "php": ">=7.4.0 <8.1"
+  },
+  "license": "MIT",
+  "config": {
+    "allow-plugins": {
+      "php-http/discovery": true,
+      "symfony/flex": true
+    }
+  }
+}
