@@ -36,7 +36,6 @@
     "csfixer": "vendor/bin/ecs check .",
     "fixcs": "vendor/bin/ecs check . --fix"
   },
-  "minimum-stability": "dev",
   "require": {
     "mautic/core-lib": "^4.4",
     "php": ">=7.4.0 <8.1"
